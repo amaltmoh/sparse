@@ -206,3 +206,247 @@ void sumMatrix(struct sp A[100],struct sp B[100], struct sp sum[100])
 	sum[0].value=k-1;
 }
 
+	
+ 
+#include<stdio.h>
+ 2 
+ 
+void quicksort(int a[25],int l,int h)
+ 3 
+ 
+{
+ 4 
+ 
+    int i,j,pivot,temp;
+ 5 
+ 
+    if(l<h)
+ 6 
+ 
+    {
+ 7 
+ 
+        pivot=l;
+ 8 
+ 
+        i=l;
+ 9 
+ 
+        j=h;
+ 10 
+ 
+        while(i<j)
+ 11 
+ 
+        {
+ 12 
+ 
+            while(a[i]<=a[pivot] && i<h)
+ 13 
+ 
+            {
+ 14 
+ 
+                i++;
+ 15 
+ 
+            }
+ 16 
+ 
+            while(a[j]>a[pivot])
+ 17 
+ 
+            {
+ 18 
+ 
+                j--;
+ 19 
+ 
+            }
+ 20 
+ 
+            if(i<j)
+ 21 
+ 
+            {
+ 22 
+ 
+                temp=a[i];
+ 23 
+ 
+                a[i]=a[j];
+ 24 
+ 
+                a[j]=temp;
+ 25 
+ 
+            }
+ 26 
+ 
+        }
+ 27 
+ 
+        temp=a[pivot];
+ 28 
+ 
+        a[pivot]=a[j];
+ 29 
+ 
+        a[j]=temp;
+ 30 
+ 
+        quicksort(a,l,j-1);
+ 31 
+ 
+        quicksort(a,j+1,h);
+ 32 
+ 
+    }
+ 33 
+ 
+}
+ 34 
+ 
+int main()
+ 35 
+ 
+{
+ 36 
+ 
+    int i,n,a[25];
+ 37 
+ 
+    printf("\nenter the number of elements of the array: ");
+ 38 
+ 
+    scanf("%d",&n);
+ 39 
+ 
+    printf("enter the elements: ");
+ 40 
+ 
+    for(i=0;i<n;i++)
+ 41 
+ 
+    {
+ 42 
+ 
+        scanf("%d",&a[i]);
+ 43 
+ 
+    }
+ 44 
+ 
+    quicksort(a,0,n-1);
+ 45 
+ 
+    printf("\nthe sorted elements are: ");
+ 46 
+ 
+    for(i=0;i<n;i++)
+ 47 
+ 
+    {
+ 48 
+ 
+        printf("\t%d",a[i]);
+ 49 
+ 
+    }
+ 50 
+ 
+}
+ 51 
+ 
+ 
+#include<stdio.h>
+ 2 
+ 
+int main()
+ 3 
+ 
+{
+ 4 
+ 
+    int a[50],i,n,j,temp,min;
+ 5 
+ 
+    printf("enter the limit of the array: ");
+ 6 
+ 
+    scanf("%d",&n);
+ 7 
+ 
+    printf("enter the elements: ");
+ 8 
+ 
+    for(i=0;i<n;i++)
+ 9 
+ 
+    {
+ 10 
+ 
+        scanf("%d",&a[i]);
+ 11 
+ 
+    }
+ 12 
+ 
+    for(i=0;i<n-1;i++)
+ 13 
+ 
+    {
+ 14 
+ 
+        min=i;
+ 15 
+ 
+        for(j=i+1;j<n;j++)
+ 16 
+ 
+        {
+ 17 
+ 
+            if(a[j]<a[min])
+ 18 
+ 
+            {
+ 19 
+ 
+                min=j;
+ 20 
+ 
+            }
+ 21 
+ 
+        }
+ 22 
+ 
+        temp=a[i];
+ 23 
+ 
+        a[i]=a[min];
+ 24 
+ 
+        a[min]=temp;
+ 25 
+ 
+    }
+ 26 
+ 
+    printf("\nthe sorted array is: ");
+ 27 
+ 
+    for(i=0;i<n;i++)
+ 28 
+ 
+    {
+ 29 
+ 
+        printf("\t%d",a[i]);
+ 30 
+ 
+    }
+ 31 
+ 
+}
